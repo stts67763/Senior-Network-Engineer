@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Line Reference Guide</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            margin: 40px;
+            background-color: #ffffff;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: normal;
+            color: #555;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #777;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+            color: #333;
+        }
+
+        td {
+            color: #444;
+        }
+
+        /* Monospace styling for the examples and commands to mimic the image */
+        .code {
+            font-family: Consolas, "Courier New", monospace;
+            background-color: #f4f4f4;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #333;
+            display: inline-block;
+        }
+
+        /* Slight column width adjustments for readability */
+        th:nth-child(1) { width: 20%; }
+        th:nth-child(2) { width: 45%; }
+        th:nth-child(3) { width: 35%; }
+    </style>
+</head>
+<body>
+
+    <h2>Basic Navigation & Listing</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>clear</td><td>Clear the terminal screen</td><td><span class="code">clear</span></td></tr>
+            <tr><td>ls -l</td><td>List files and directories of current folder in detail long format</td><td><span class="code">ls -l</span></td></tr>
+            <tr><td>ls -a</td><td>List all files and directories including hidden in current folder</td><td><span class="code">ls -a</span></td></tr>
+            <tr><td>ls -Ra</td><td>List all files, directories and subdirectories, including hidden</td><td><span class="code">ls -R</span></td></tr>
+            <tr><td>ls -d */</td><td>List directories only in current folder</td><td><span class="code">ls -d */</span></td></tr>
+            <tr><td>tree -d</td><td>Display all directories and subdirectories in tree format</td><td><span class="code">tree -d</span></td></tr>
+            <tr><td>cd</td><td>Change directory</td><td><span class="code">cd /etc/hosts</span></td></tr>
+            <tr><td>cd ..</td><td>Move up one directory</td><td><span class="code">cd ..</span></td></tr>
+            <tr><td>cd /</td><td>Go to root directory</td><td><span class="code">cd /</span></td></tr>
+            <tr><td>cd</td><td>Go to home directory</td><td><span class="code">cd (or cd ~)</span></td></tr>
+            <tr><td>cd ~/dir</td><td>Go to a subdirectory of home directory</td><td><span class="code">cd ~/automation</span></td></tr>
+            <tr><td>cd –</td><td>Go to previous directory</td><td><span class="code">cd -</span></td></tr>
+            <tr><td>mkdir</td><td>Create a directory</td><td><span class="code">mkdir scripts</span></td></tr>
+            <tr><td>rmdir</td><td>Remove single empty directory</td><td><span class="code">rmdir reports</span></td></tr>
+            <tr><td>rm -r</td><td>Remove directory and subdirectories</td><td><span class="code">rm -r config</span></td></tr>
+            <tr><td>rm -f *</td><td>Force remove all files in current folder with no prompts</td><td><span class="code">rm -f *</span></td></tr>
+            <tr><td>mv</td><td>Move files or directories</td><td><span class="code">mv file1.txt ~/automation</span></td></tr>
+            <tr><td>mv</td><td>Rename files or directories</td><td><span class="code">mv file1.txt file2.txt</span></td></tr>
+            <tr><td>pwd</td><td>Print working directory</td><td><span class="code">pwd</span></td></tr>
+            <tr><td>cp</td><td>Copy file to a subdirectory of home directory</td><td><span class="code">cp file1.txt ~/documents</span></td></tr>
+            <tr><td>cp -r</td><td>Copy directory and all subdirectories to destination</td><td><span class="code">cp -r dir1 dir2</span></td></tr>
+        </tbody>
+    </table>
+
+    <h2>Text Editors & Viewing</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>nano</td><td>Open or create file in nano editor</td><td><span class="code">nano file.txt</span></td></tr>
+            <tr><td>sudo nano</td><td>Edit a system configuration file in nano editor</td><td><span class="code">sudo nano custom.yaml</span></td></tr>
+            <tr><td>cat</td><td>Display file contents</td><td><span class="code">cat file.txt</span></td></tr>
+        </tbody>
+    </table>
+
+    <h2>Networking</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>ip a</td><td>Show IP addressing</td><td><span class="code">ip a</span></td></tr>
+            <tr><td>ip route show</td><td>Show routing table</td><td><span class="code">ip route show</span></td></tr>
+            <tr><td>sudo ip route add</td><td>Add a static route</td><td><span class="code">sudo ip route add 192.168.2.0/24 via 192.168.1.1 dev ens33</span></td></tr>
+            <tr><td>sudo ip route del</td><td>Delete a static route</td><td><span class="code">sudo ip route del 192.168.2.0/24 via 192.168.1.1 dev ens33</span></td></tr>
+            <tr><td>sudo ip route add default</td><td>Add a default route</td><td><span class="code">sudo ip route add default via 172.16.1.1 dev ens33</span></td></tr>
+            <tr><td>sudo ip route del default</td><td>Delete a default route</td><td><span class="code">sudo ip route del default via 172.16.1.1 dev ens33</span></td></tr>
+            <tr><td>sudo ip addr add</td><td>Add IP address</td><td><span class="code">sudo ip addr add 192.168.1.1/24 dev ens33</span></td></tr>
+            <tr><td>sudo ip addr del</td><td>Delete IP address</td><td><span class="code">sudo ip addr del 192.168.1.1/24 dev ens33</span></td></tr>
+            <tr><td>sudo netplan</td><td>Update and activate network configuration</td><td><span class="code">netplan apply<br>netplan generate</span></td></tr>
+            <tr><td>ip link show</td><td>Show interface status and MAC address</td><td><span class="code">ip link show ens33</span></td></tr>
+            <tr><td>ip neighbor show</td><td>Show ARP table</td><td><span class="code">ip neighbor show</span></td></tr>
+            <tr><td>ip -6 neighbor show</td><td>Show IPv6 neighbors</td><td><span class="code">ip -6 neighbor show</span></td></tr>
+            <tr><td>ethtool -S</td><td>Show interface stats</td><td><span class="code">ethtool -S ens33</span></td></tr>
+            <tr><td>ip link set dev &lt;int&gt; mtu &lt;val&gt;</td><td>Set interface MTU</td><td><span class="code">sudo ip link set dev ens33 mtu 1400</span></td></tr>
+            <tr><td>curl ipinfo.io/ip</td><td>Show NAT public IP (CLI)</td><td><span class="code">curl ipinfo.io/ip</span></td></tr>
+            <tr><td>ipinfo.io/ip</td><td>Show NAT public IP (browser)</td><td><span class="code">ipinfo.io/ip</span></td></tr>
+            <tr><td>ping</td><td>Test network connectivity + DNS</td><td><span class="code">ping google.com</span></td></tr>
+            <tr><td>sudo mtr</td><td>Monitor network connection continuously</td><td><span class="code">sudo mtr 8.8.8.8</span></td></tr>
+            <tr><td>sudo traceroute</td><td>Show network forwarding path (route)</td><td><span class="code">sudo traceroute 8.8.8.8</span></td></tr>
+            <tr><td>tracepath</td><td>Traceroute alternate using UDP packets</td><td><span class="code">tracepath 8.8.8.8</span></td></tr>
+            <tr><td>dig</td><td>Detailed DNS lookup</td><td><span class="code">dig udemy.com</span></td></tr>
+            <tr><td>nslookup</td><td>Basic DNS lookup</td><td><span class="code">nslookup udemy.com</span></td></tr>
+            <tr><td>sudo ss -tulnp</td><td>Show application listening sockets</td><td><span class="code">sudo ss -tulnp</span></td></tr>
+            <tr><td>telnet</td><td>Test TCP open port connection</td><td><span class="code">telnet 192.168.1.1 22</span></td></tr>
+            <tr><td>ssh</td><td>Connect via SSH</td><td><span class="code">ssh shaun@192.168.2.1</span></td></tr>
+            <tr><td>sudo tcpdump</td><td>Capture network packets</td><td><span class="code">sudo tcpdump -i ens33</span></td></tr>
+            <tr><td>curl -I url</td><td>Get HTTP headers for analysis</td><td><span class="code">curl -I https://example.com</span></td></tr>
+            <tr><td>wget</td><td>Download file</td><td><span class="code">wget https://example.com/file</span></td></tr>
+        </tbody>
+    </table>
+
+    <h2>Package Management & Git</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>sudo apt update</td><td>Update package index</td><td><span class="code">sudo apt update</span></td></tr>
+            <tr><td>sudo apt upgrade</td><td>Upgrade packages</td><td><span class="code">sudo apt upgrade</span></td></tr>
+            <tr><td>sudo apt install</td><td>Install package/s</td><td><span class="code">sudo apt install -y nmap traceroute</span></td></tr>
+            <tr><td>ansible --version</td><td>Show Ansible version</td><td><span class="code">ansible --version</span></td></tr>
+            <tr><td>python3 -m pip install</td><td>Install a Python package</td><td><span class="code">python3 -m pip install netmiko</span></td></tr>
+            <tr><td>pip show</td><td>Show Python package info</td><td><span class="code">pip show napalm</span></td></tr>
+            <tr><td>dpkg -l</td><td>List installed packages</td><td><span class="code">dpkg -l</span></td></tr>
+            <tr><td>git</td><td>Version control tool</td><td><span class="code">git status</span></td></tr>
+        </tbody>
+    </table>
+
+    <h2>System & Process Monitoring</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>top</td><td>Show running processes and resource usage</td><td><span class="code">top</span></td></tr>
+            <tr><td>htop</td><td>Interactive user-friendly graphical version of top</td><td><span class="code">htop</span></td></tr>
+            <tr><td>df -h</td><td>Show disk space usage (human-readable)</td><td><span class="code">df -h</span></td></tr>
+            <tr><td>free -m</td><td>Show memory usage in MB</td><td><span class="code">free -m</span></td></tr>
+            <tr><td>ps</td><td>Show current processes running</td><td><span class="code">ps</span></td></tr>
+            <tr><td>env</td><td>Show environment variables</td><td><span class="code">env</span></td></tr>
+            <tr><td>which</td><td>Locate an executable</td><td><span class="code">which python3</span></td></tr>
+            <tr><td>history</td><td>Show commands types at bash terminal</td><td><span class="code">history</span></td></tr>
+            <tr><td>uptime</td><td>Show system uptime</td><td><span class="code">uptime</span></td></tr>
+            <tr><td>uname -a</td><td>Show system info</td><td><span class="code">uname -a</span></td></tr>
+            <tr><td>hostname</td><td>Show hostname</td><td><span class="code">hostname</span></td></tr>
+            <tr><td>date</td><td>Show date</td><td><span class="code">date</span></td></tr>
+            <tr><td>sudo timedatectl</td><td>Show or set time/timezone and verify NTP status</td><td><span class="code">sudo timedatectl</span></td></tr>
+            <tr><td>whoami</td><td>Show current logged-in user</td><td><span class="code">whoami</span></td></tr>
+            <tr><td>exit</td><td>Exit shell</td><td><span class="code">exit</span></td></tr>
+            <tr><td>sudo reboot</td><td>Reboot system</td><td><span class="code">sudo reboot</span></td></tr>
+            <tr><td>sudo shutdown</td><td>Shutdown system</td><td><span class="code">sudo shutdown now</span></td></tr>
+        </tbody>
+    </table>
+
+    <h2>User & Permissions</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>sudo adduser</td><td>Create user with home directory and password</td><td><span class="code">sudo adduser user2</span></td></tr>
+            <tr><td>sudo useradd</td><td>Create username only</td><td><span class="code">sudo useradd user2</span></td></tr>
+            <tr><td>sudo userdel -r</td><td>Delete user and home directory</td><td><span class="code">sudo userdel -r user1</span></td></tr>
+            <tr><td>sudo groupadd</td><td>Add new group</td><td><span class="code">sudo groupadd automation</span></td></tr>
+            <tr><td>sudo groupdel</td><td>Delete group</td><td><span class="code">sudo groupdel devops</span></td></tr>
+            <tr><td>sudo usermod -a -G group user</td><td>Add user to group</td><td><span class="code">sudo usermod -a -G devops user1</span></td></tr>
+            <tr><td>sudo passwd</td><td>Change password for a username</td><td><span class="code">sudo passwd user1</span></td></tr>
+            <tr><td>sudo chmod</td><td>Change permissions on directory and subdirectories</td><td><span class="code">sudo chmod -R 777 file.sh</span></td></tr>
+            <tr><td>sudo chmod +x file.sh</td><td>Add execute permission to a file</td><td><span class="code">sudo chmod +x file.sh</span></td></tr>
+            <tr><td>sudo chown -v</td><td>Change file ownership</td><td><span class="code">sudo chown -v user:group file.sh</span></td></tr>
+            <tr><td>su - 'user'</td><td>Switch user account</td><td><span class="code">su - shaun</span></td></tr>
+            <tr><td>su -</td><td>Switch to root account</td><td><span class="code">su -</span></td></tr>
+        </tbody>
+    </table>
+
+    <h2>Disk & Storage</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>lsblk</td><td>List block devices (HDD, USB etc)</td><td><span class="code">lsblk</span></td></tr>
+            <tr><td>sudo mount</td><td>Mount filesystem</td><td><span class="code">sudo mount /dev/sdb1 /mnt</span></td></tr>
+            <tr><td>du -sh</td><td>Show disk usage of a directory</td><td><span class="code">du -sh /home/user</span></td></tr>
+            <tr><td>tar</td><td>Archive files</td><td><span class="code">tar -cvf folder.tar folder_to_tar</span></td></tr>
+            <tr><td>venv</td><td>Create Python virtual environment</td><td><span class="code">python3 -m venv myenv</span></td></tr>
+        </tbody>
+    </table>
+
+    <h2>Firewall & Networking Tools</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>sudo ufw status verbose</td><td>Show firewall status</td><td><span class="code">sudo ufw status verbose</span></td></tr>
+            <tr><td>sudo ufw allow</td><td>Allow inbound protocol traffic through host firewall</td><td><span class="code">sudo ufw allow 22/tcp</span></td></tr>
+            <tr><td>sudo nft list ruleset</td><td>List nftables rules</td><td><span class="code">sudo nft list ruleset</span></td></tr>
+            <tr><td>sudo iptables -L -n</td><td>List iptables rules (legacy)</td><td><span class="code">sudo iptables -L -n</span></td></tr>
+            <tr><td>sudo cdpcli show</td><td>Show CDP neighbor information</td><td><span class="code">sudo cdpcli show neighbors</span></td></tr>
+            <tr><td>sudo lldpctl</td><td>Show LLDP neighbor information</td><td><span class="code">sudo lldpctl</span></td></tr>
+        </tbody>
+    </table>
+
+    <h2>Text Processing</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>grep</td><td>Search text</td><td><span class="code">grep "error" logfile.txt</span></td></tr>
+            <tr><td>awk</td><td>Process text</td><td><span class="code">awk '{print $1}' file.txt</span></td></tr>
+            <tr><td>sed</td><td>Stream editor</td><td><span class="code">sed 's/dir/dir/' file.txt</span></td></tr>
+            <tr><td>tail -f -n</td><td>Show bottom lines of log file (e.g., 10) and monitor real-time</td><td><span class="code">tail -f -n 10 logfile.txt</span></td></tr>
+        </tbody>
+    </table>
+
+    <h2>Other</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Command</th>
+                <th>Description</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>man</td><td>Show manual page for a command</td><td><span class="code">man ls</span></td></tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
